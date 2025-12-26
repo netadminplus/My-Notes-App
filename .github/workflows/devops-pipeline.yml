@@ -51,5 +51,10 @@ jobs:
         run: |
           echo "${{ secrets.KUBECONFIG }}" > kubeconfig.yaml
           export KUBECONFIG=kubeconfig.yaml
+          # Apply manifests to create/update resources
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
+          kubectl apply -f k8s/ingress.yaml
+          # Update the image to the new tag
           kubectl set image deployment/notes-app notes-app=ramtiin/my-notes-app:${{ github.sha }} -n default
           kubectl rollout status deployment/notes-app -n default
