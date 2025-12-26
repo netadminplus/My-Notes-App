@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: notes-app-monitor
+  namespace: default
+  labels:
+    app: notes-app
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: notes-app
+  endpoints:
+  - port: http
+    path: /metrics
+    interval: 15s
