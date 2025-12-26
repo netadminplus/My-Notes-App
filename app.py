@@ -71,13 +71,3 @@ def health():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-```
-
-### `requirements.txt`
-```
-Flask==2.3.0
-Flask-SQLAlchemy==3.0.3
-gunicorn==20.1.0
-prometheus-flask-exporter==0.22.3
-pytest==7.3.1
-requests==2.28.0
