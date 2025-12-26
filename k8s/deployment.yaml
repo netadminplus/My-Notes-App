@@ -19,6 +19,9 @@ spec:
         image: ramtiin/my-notes-app:latest
         ports:
         - containerPort: 5000
+        env:
+        - name: DATABASE_URL
+          value: "postgresql://ramtin:securepassword123@postgres-service:5432/notes_db"
         resources:
           requests:
             memory: "128Mi"
